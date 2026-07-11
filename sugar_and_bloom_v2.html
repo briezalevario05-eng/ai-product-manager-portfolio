@@ -1,0 +1,763 @@
+<!-- Sugar & Bloom — boutique bakery landing page -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sugar &amp; Bloom — Handcrafted Cakes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============ ICON SPRITE ============ -->
+<svg style="display:none">
+  <symbol id="icon-sprig" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M32 58V22"/>
+    <path d="M32 34C22 34 16 26 16 16C26 16 32 24 32 34Z"/>
+    <path d="M32 26C42 26 48 18 48 8C38 8 32 16 32 26Z"/>
+    <circle cx="32" cy="18" r="2" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="icon-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 8C17 8 12 13 12 19C12 25 17 28 24 28C31 28 36 25 36 19C36 13 31 8 24 8Z"/>
+    <path d="M24 28V40"/>
+    <path d="M17 40H31"/>
+    <circle cx="24" cy="18" r="2.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-quote" viewBox="0 0 48 36" fill="currentColor">
+    <path d="M0 36V21.6C0 9.6 7.2 1.6 18 0L19.6 4.4C13.2 6 9.6 10 9.6 15.2H18V36H0ZM28.4 36V21.6C28.4 9.6 35.6 1.6 46.4 0L48 4.4C41.6 6 38 10 38 15.2H46.4V36H28.4Z"/>
+  </symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/>
+  </symbol>
+  <symbol id="icon-pinterest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <circle cx="12" cy="12" r="9"/><path d="M9.5 18c1-3 1.7-6 2-8a2.5 2.5 0 1 1 3 2c-.3 1.6-1 4.4 1 4.4 2.4 0 4-3 4-5.8C19.5 7 16.8 5 13.5 5 9.8 5 7 7.6 7 11c0 1.4.5 2.3 1.3 3"/>
+  </symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <circle cx="12" cy="12" r="9"/><path d="M13.5 21v-7h2.2l.3-2.6h-2.5V9.7c0-.8.2-1.3 1.4-1.3h1.2V6.1C15.7 6 15 6 14.1 6c-2 0-3.4 1.2-3.4 3.5v1.9H8.5V14h2.2v7"/>
+  </symbol>
+</svg>
+
+<style>
+  :root{
+    --cream:#FBF3E9;
+    --cream-soft:#F3E6D6;
+    --paper:#FFFDFA;
+    --espresso:#2B1B14;
+    --espresso-soft:#5C4636;
+    --berry:#7C2D3B;
+    --berry-dark:#511D27;
+    --berry-soft:#F3DEDE;
+    --gold:#B4872E;
+    --gold-light:#E4C989;
+    --line: rgba(43,27,20,0.12);
+    --shadow: 0 30px 60px -25px rgba(43,27,20,0.35);
+    --ease: cubic-bezier(.65,0,.35,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope',sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;margin:0;font-weight:500;letter-spacing:-.01em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);}
+  .eyebrow{
+    display:flex;align-items:center;gap:12px;
+    font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:700;color:var(--berry);margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(2rem,4vw,2.9rem);line-height:1.1;}
+  .section-head h2 em{color:var(--berry);font-style:italic;}
+  .section-head p{margin-top:18px;font-size:1.05rem;color:var(--espresso-soft);line-height:1.6;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;border-radius:100px;border:1px solid transparent;
+    font-size:.92rem;font-weight:700;letter-spacing:.03em;
+    transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s,box-shadow .3s;
+    white-space:nowrap;
+  }
+  .btn svg{width:16px;height:16px;transition:transform .3s var(--ease);}
+  .btn:hover svg{transform:translateX(4px);}
+  .btn-primary{background:var(--berry);color:var(--cream);box-shadow:0 14px 30px -12px rgba(124,45,59,.65);}
+  .btn-primary:hover{background:var(--berry-dark);transform:translateY(-2px);}
+  .btn-ghost{border-color:rgba(251,243,233,.5);color:var(--cream);}
+  .btn-ghost:hover{background:rgba(251,243,233,.12);transform:translateY(-2px);}
+  .btn-outline{border-color:var(--espresso);color:var(--espresso);}
+  .btn-outline:hover{background:var(--espresso);color:var(--cream);transform:translateY(-2px);}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px clamp(20px,5vw,48px);
+    transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+    color:var(--cream);
+  }
+  .nav.scrolled{
+    background:rgba(251,243,233,.92);
+    backdrop-filter:blur(10px);
+    padding:14px clamp(20px,5vw,48px);
+    box-shadow:0 10px 30px -20px rgba(43,27,20,.4);
+    color:var(--espresso);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.25rem;letter-spacing:.01em;}
+  .brand svg{width:26px;height:26px;color:var(--gold);}
+  .brand em{font-style:italic;color:var(--gold);}
+  .nav-links{display:flex;gap:38px;align-items:center;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-size:.85rem;font-weight:600;letter-spacing:.04em;position:relative;padding:4px 0;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:width .3s var(--ease);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:26px;}
+  .nav .btn-primary{padding:12px 24px;font-size:.82rem;}
+  .nav-toggle{display:none;background:none;border:none;color:inherit;padding:6px;}
+  .nav-toggle svg{width:24px;height:24px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:center;
+    clip-path:polygon(0 0,100% 0,100% 93%,0 100%);
+    background:
+      linear-gradient(180deg, rgba(43,27,20,.55) 0%, rgba(43,27,20,.35) 45%, rgba(81,29,39,.75) 100%),
+      url('https://images.unsplash.com/photo-1559373098-e1caaccae791?auto=format&fit=crop&w=1800&q=80') center 30%/cover no-repeat;
+  }
+  .hero-inner{
+    position:relative;z-index:2;padding:170px clamp(20px,5vw,48px) 140px;
+    max-width:1180px;margin:0 auto;width:100%;
+    border:1px solid rgba(228,201,137,.4);
+    margin-top:40px;
+  }
+  .hero-frame{padding:clamp(36px,6vw,72px);}
+  .hero-eyebrow{
+    display:flex;align-items:center;gap:16px;color:var(--gold-light);
+    font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:700;margin-bottom:28px;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after{content:"";flex:0 0 30px;height:1px;background:var(--gold-light);}
+  .hero h1{
+    color:var(--cream);font-size:clamp(3rem,8vw,6rem);line-height:.98;font-weight:400;
+  }
+  .hero h1 .amp{font-style:italic;color:var(--gold-light);font-weight:400;padding:0 .08em;}
+  .hero-tagline{
+    margin-top:26px;font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    color:var(--cream-soft);font-size:clamp(1.15rem,2.2vw,1.5rem);max-width:520px;line-height:1.5;
+  }
+  .hero-actions{display:flex;gap:18px;flex-wrap:wrap;margin-top:48px;}
+  .scroll-cue{
+    position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--cream-soft);
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;z-index:2;
+  }
+  .scroll-cue span{width:1px;height:36px;background:linear-gradient(var(--gold-light),transparent);animation:scrollpulse 1.8s infinite var(--ease);}
+  @keyframes scrollpulse{0%{opacity:0;transform:scaleY(0);transform-origin:top;}50%{opacity:1;transform:scaleY(1);transform-origin:top;}100%{opacity:0;transform:scaleY(1);transform-origin:bottom;}}
+
+  /* ===== QUIZ ===== */
+  .quiz{padding:150px 0 130px;position:relative;overflow:hidden;}
+  .quiz .sprig{position:absolute;top:60px;right:6%;width:70px;height:70px;color:var(--gold-light);opacity:.7;transform:rotate(20deg);}
+  .quiz-card{
+    background:var(--paper);border-radius:28px;box-shadow:var(--shadow);
+    border:1px solid var(--line);
+    max-width:780px;margin:0 auto;position:relative;overflow:hidden;
+    min-height:460px;
+  }
+  .quiz-progress{height:3px;background:var(--cream-soft);position:relative;}
+  .quiz-progress-bar{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--berry));width:0%;transition:width .5s var(--ease);}
+  .quiz-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:26px 40px 0;
+  }
+  .quiz-step-label{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--espresso-soft);}
+  .quiz-step-label b{color:var(--berry);font-size:1rem;}
+  .quiz-back{
+    display:flex;align-items:center;gap:6px;background:none;border:none;color:var(--espresso-soft);
+    font-size:.82rem;font-weight:700;visibility:hidden;opacity:0;transition:opacity .3s;
+  }
+  .quiz-back.show{visibility:visible;opacity:1;}
+  .quiz-back svg{width:14px;height:14px;transform:rotate(180deg);}
+  .quiz-panels{position:relative;padding:34px 40px 44px;}
+  .quiz-panel{
+    position:absolute;inset:0;padding:34px 40px 44px;
+    opacity:0;transform:translateX(40px);pointer-events:none;
+    transition:opacity .5s var(--ease),transform .5s var(--ease);
+  }
+  .quiz-panel.active{position:relative;opacity:1;transform:translateX(0);pointer-events:auto;}
+  .quiz-panel.prev{transform:translateX(-40px);}
+  .quiz-panel h3{font-size:clamp(1.5rem,3vw,2rem);line-height:1.25;margin-bottom:8px;}
+  .quiz-panel .hint{color:var(--espresso-soft);font-size:.95rem;margin-bottom:30px;}
+  .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .option{
+    display:flex;align-items:center;gap:14px;text-align:left;
+    padding:20px 20px;border-radius:16px;border:1.5px solid var(--line);background:var(--cream);
+    transition:border-color .3s,background .3s,transform .25s var(--ease);
+  }
+  .option .ic{font-size:1.5rem;line-height:1;}
+  .option .lbl{font-weight:700;font-size:.98rem;}
+  .option:hover{border-color:var(--gold);transform:translateY(-2px);}
+  .option.selected{border-color:var(--berry);background:var(--berry-soft);}
+  .option.selected .lbl{color:var(--berry-dark);}
+
+  .quiz-result{display:none;text-align:left;}
+  .quiz-result.active{display:block;}
+  .result-grid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:34px;align-items:center;}
+  .result-img{border-radius:18px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 20px 40px -20px rgba(43,27,20,.4);}
+  .result-img img{width:100%;height:100%;object-fit:cover;}
+  .result-tag{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:10px;}
+  .result-grid h3{font-size:clamp(1.6rem,3vw,2.1rem);}
+  .result-desc{margin-top:14px;color:var(--espresso-soft);line-height:1.65;font-size:.98rem;}
+  .result-price{margin-top:18px;font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;color:var(--berry);}
+  .result-actions{margin-top:26px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .retake{font-size:.85rem;font-weight:700;color:var(--espresso-soft);border-bottom:1px solid currentColor;padding-bottom:2px;}
+  .retake:hover{color:var(--berry);}
+
+  /* ===== MENU ===== */
+  .menu{padding:60px 0 140px;}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .cake-card{position:relative;}
+  .cake-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 45px -28px rgba(43,27,20,.55);}
+  .cake-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);filter:saturate(1.05) contrast(1.02);}
+  .cake-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(124,45,59,0) 55%,rgba(43,27,20,.55) 100%);}
+  .cake-card:hover .cake-media img{transform:scale(1.07);}
+  .cake-price-tag{
+    position:absolute;bottom:14px;right:14px;z-index:2;
+    background:var(--paper);color:var(--berry);font-weight:800;font-size:.9rem;
+    padding:8px 16px;border-radius:100px;box-shadow:0 8px 18px -8px rgba(43,27,20,.4);
+  }
+  .cake-info{padding:22px 4px 0;}
+  .cake-info h3{font-size:1.3rem;}
+  .cake-info p{margin-top:8px;color:var(--espresso-soft);font-size:.92rem;line-height:1.55;}
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{padding:60px 0 140px;background:var(--cream-soft);position:relative;}
+  .testimonials::before,.testimonials::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line);}
+  .testimonials::before{top:0;}.testimonials::after{bottom:0;}
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .tcard{background:var(--paper);border-radius:20px;padding:36px 30px;border:1px solid var(--line);position:relative;}
+  .tcard svg{width:36px;height:28px;color:var(--gold-light);margin-bottom:18px;}
+  .tcard p.quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;line-height:1.6;color:var(--espresso);}
+  .tcard .stars{margin-top:20px;color:var(--gold);letter-spacing:3px;font-size:.95rem;}
+  .tcard .who{margin-top:14px;font-weight:800;font-size:.92rem;}
+  .tcard .who span{display:block;font-weight:500;color:var(--espresso-soft);font-size:.82rem;margin-top:2px;}
+
+  /* ===== ORDER / CONTACT ===== */
+  .order{padding:60px 0 150px;}
+  .order-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start;}
+  .order-info h2{font-size:clamp(2rem,3.6vw,2.7rem);}
+  .order-info p{margin-top:18px;color:var(--espresso-soft);line-height:1.7;font-size:1rem;}
+  .order-facts{margin-top:38px;display:flex;flex-direction:column;gap:22px;}
+  .order-fact{display:flex;gap:16px;align-items:flex-start;}
+  .order-fact .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:8px;flex-shrink:0;}
+  .order-fact b{display:block;font-size:.95rem;}
+  .order-fact span{color:var(--espresso-soft);font-size:.9rem;}
+  .order-form{
+    background:var(--espresso);color:var(--cream);border-radius:26px;padding:clamp(30px,4vw,52px);
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .order-form::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,rgba(228,201,137,.18),transparent 70%);
+  }
+  .order-form h3{font-size:1.6rem;color:var(--cream);position:relative;}
+  .order-form > p{color:rgba(251,243,233,.65);margin-top:10px;font-size:.92rem;position:relative;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;position:relative;}
+  .field{display:flex;flex-direction:column;gap:8px;margin-top:22px;position:relative;}
+  .form-row .field{margin-top:0;}
+  .field label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--gold-light);}
+  .field input,.field textarea{
+    background:rgba(251,243,233,.07);border:1px solid rgba(251,243,233,.22);border-radius:12px;
+    padding:14px 16px;color:var(--cream);font-family:inherit;font-size:.95rem;
+    transition:border-color .3s,background .3s;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(251,243,233,.4);}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold-light);background:rgba(251,243,233,.12);}
+  .field textarea{resize:vertical;min-height:110px;}
+  .form-submit{margin-top:32px;width:100%;justify-content:center;position:relative;}
+  .form-note{margin-top:16px;font-size:.78rem;color:rgba(251,243,233,.5);position:relative;}
+  .thankyou{display:none;text-align:center;padding:40px 10px;position:relative;}
+  .thankyou.active{display:block;}
+  .thankyou .check{
+    width:64px;height:64px;border-radius:50%;background:rgba(228,201,137,.15);border:1px solid var(--gold-light);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--gold-light);font-size:1.6rem;
+  }
+  .thankyou h3{color:var(--cream);}
+  .thankyou p{margin-top:12px;color:rgba(251,243,233,.65);font-size:.95rem;line-height:1.6;}
+  .thankyou button{margin-top:22px;background:none;border:none;color:var(--gold-light);font-weight:700;font-size:.85rem;border-bottom:1px solid currentColor;padding-bottom:2px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--espresso);color:rgba(251,243,233,.7);padding:80px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:56px;border-bottom:1px solid rgba(251,243,233,.12);}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:var(--cream);font-family:'Fraunces',serif;font-size:1.3rem;}
+  .foot-brand svg{width:26px;height:26px;color:var(--gold-light);}
+  .foot-brand em{font-style:italic;color:var(--gold-light);}
+  footer .tagline-small{margin-top:16px;font-size:.9rem;line-height:1.6;max-width:280px;}
+  .foot-social{display:flex;gap:14px;margin-top:24px;}
+  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(251,243,233,.25);display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s;}
+  .foot-social a svg{width:16px;height:16px;}
+  .foot-social a:hover{background:rgba(251,243,233,.1);border-color:var(--gold-light);}
+  .foot-col h4{color:var(--cream);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-family:'Manrope',sans-serif;font-weight:700;margin-bottom:20px;}
+  .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:.92rem;}
+  .foot-col ul a:hover{color:var(--gold-light);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;font-size:.8rem;flex-wrap:wrap;gap:10px;}
+
+  /* ===== responsive ===== */
+  @media (max-width:900px){
+    .nav-links,.nav-cta .btn-primary{display:none;}
+    .nav-toggle{display:flex;}
+    .hero-inner{padding:140px 14px 100px;margin-top:20px;}
+    .hero-frame{padding:26px;}
+    .options-grid{grid-template-columns:1fr;}
+    .result-grid{grid-template-columns:1fr;}
+    .menu-grid{grid-template-columns:repeat(2,1fr);}
+    .tgrid{grid-template-columns:1fr;}
+    .order-grid{grid-template-columns:1fr;gap:44px;}
+    .foot-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
+  }
+  @media (max-width:560px){
+    .menu-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .quiz-panels{padding:28px 22px 36px;}
+    .quiz-panel{padding:28px 22px 36px;}
+    .quiz-head{padding:22px 22px 0;}
+  }
+</style>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#home" class="brand"><svg><use href="#icon-mark"/></svg>Sugar <em>&amp;</em> Bloom</a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#quiz">Cake Quiz</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#order">Order</a></li>
+    </ul>
+  </nav>
+  <div class="nav-cta">
+    <a href="#order" class="btn btn-primary">Order Now <svg><use href="#icon-arrow"/></svg></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div id="mobileMenu" style="display:none;position:fixed;inset:0;z-index:99;background:var(--espresso);color:var(--cream);flex-direction:column;align-items:center;justify-content:center;gap:34px;font-family:'Fraunces',serif;font-size:1.6rem;">
+  <a href="#quiz">Cake Quiz</a>
+  <a href="#menu">Menu</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#order">Order</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-frame">
+      <div class="hero-eyebrow">Boutique Bakery · Est. 2016</div>
+      <h1>Sugar <span class="amp">&amp;</span> Bloom</h1>
+      <p class="hero-tagline">Handcrafted cakes for life's sweetest moments.</p>
+      <div class="hero-actions">
+        <a href="#quiz" class="btn btn-primary">Take the Cake Quiz <svg><use href="#icon-arrow"/></svg></a>
+        <a href="#menu" class="btn btn-ghost">View Menu</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span></span>Scroll</div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="quiz" id="quiz">
+  <svg class="sprig"><use href="#icon-sprig"/></svg>
+  <div class="container">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Find Your Cake</div>
+      <h2>Let's design your <em>perfect</em> cake</h2>
+      <p style="margin-left:auto;margin-right:auto;">Answer three quick questions and we'll recommend a cake tailored to your occasion, taste, and budget.</p>
+    </div>
+
+    <div class="quiz-card reveal">
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
+      <div class="quiz-head">
+        <div class="quiz-step-label"><b id="stepNum">01</b> / 03</div>
+        <button class="quiz-back" id="backBtn"><svg><use href="#icon-arrow"/></svg> Back</button>
+      </div>
+
+      <div class="quiz-panels" id="quizPanels">
+        <!-- Step 1 -->
+        <div class="quiz-panel active" data-step="0">
+          <h3>What's the occasion?</h3>
+          <p class="hint">Help us set the mood for your cake.</p>
+          <div class="options-grid" data-question="occasion">
+            <button class="option" data-value="birthday"><span class="ic">🎂</span><span class="lbl">Birthday</span></button>
+            <button class="option" data-value="wedding"><span class="ic">💍</span><span class="lbl">Wedding</span></button>
+            <button class="option" data-value="anniversary"><span class="ic">🥂</span><span class="lbl">Anniversary</span></button>
+            <button class="option" data-value="justbecause"><span class="ic">✨</span><span class="lbl">Just Because</span></button>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="quiz-panel" data-step="1">
+          <h3>What's your flavor preference?</h3>
+          <p class="hint">Pick the flavor that makes your mouth water.</p>
+          <div class="options-grid" data-question="flavor">
+            <button class="option" data-value="chocolate"><span class="ic">🍫</span><span class="lbl">Chocolate</span></button>
+            <button class="option" data-value="vanilla"><span class="ic">🤍</span><span class="lbl">Vanilla</span></button>
+            <button class="option" data-value="redvelvet"><span class="ic">❤️</span><span class="lbl">Red Velvet</span></button>
+            <button class="option" data-value="lemon"><span class="ic">🍋</span><span class="lbl">Lemon</span></button>
+            <button class="option" data-value="surprise"><span class="ic">🎲</span><span class="lbl">Surprise Me</span></button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="quiz-panel" data-step="2">
+          <h3>What's your budget?</h3>
+          <p class="hint">We'll size and tier your cake to fit.</p>
+          <div class="options-grid" data-question="budget">
+            <button class="option" data-value="under50"><span class="ic">$</span><span class="lbl">Under $50</span></button>
+            <button class="option" data-value="mid"><span class="ic">$$</span><span class="lbl">$50 – $100</span></button>
+            <button class="option" data-value="upper"><span class="ic">$$$</span><span class="lbl">$100 – $200</span></button>
+            <button class="option" data-value="luxury"><span class="ic">$$$$</span><span class="lbl">$200+</span></button>
+          </div>
+        </div>
+        <!-- Result -->
+        <div class="quiz-panel quiz-result" data-step="3" id="resultPanel">
+          <div class="result-grid">
+            <div class="result-img"><img id="resultImg" src="" alt=""></div>
+            <div>
+              <div class="result-tag">Your Recommendation</div>
+              <h3 id="resultTitle"></h3>
+              <p class="result-desc" id="resultDesc"></p>
+              <div class="result-price" id="resultPrice"></div>
+              <div class="result-actions">
+                <button class="btn btn-primary" id="orderThisCake">Order This Cake <svg><use href="#icon-arrow"/></svg></button>
+                <button class="retake" id="retakeBtn">Retake the quiz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Collection</div>
+      <h2>Our signature <em>cakes</em></h2>
+      <p>Each cake is baked in small batches, layered by hand, and finished the morning of pickup.</p>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Kind Words</div>
+      <h2>Sweet words from our <em>customers</em></h2>
+    </div>
+    <div class="tgrid">
+      <div class="tcard reveal">
+        <svg><use href="#icon-quote"/></svg>
+        <p class="quote">"Our wedding cake was more beautiful than the photos we sent as inspiration. Every single guest asked where it was from — the pistachio rose was unreal."</p>
+        <div class="stars">★★★★★</div>
+        <div class="who">Priya Menon<span>Wedding, June 2025</span></div>
+      </div>
+      <div class="tcard reveal">
+        <svg><use href="#icon-quote"/></svg>
+        <p class="quote">"I did the quiz on a whim and the recommendation was spot on — the Midnight Cacao for my dad's birthday disappeared in ten minutes flat."</p>
+        <div class="stars">★★★★★</div>
+        <div class="who">Marcus Reyes<span>Birthday, March 2025</span></div>
+      </div>
+      <div class="tcard reveal">
+        <svg><use href="#icon-quote"/></svg>
+        <p class="quote">"Genuinely the best red velvet I've had anywhere, and the ordering process was so easy. Sugar &amp; Bloom is our go-to for every occasion now."</p>
+        <div class="stars">★★★★★</div>
+        <div class="who">Eleanor Chang<span>Anniversary, May 2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORDER / CONTACT ============ -->
+<section class="order" id="order">
+  <div class="container">
+    <div class="order-grid">
+      <div class="order-info reveal">
+        <div class="eyebrow">Let's Get Baking</div>
+        <h2>Tell us about your cake</h2>
+        <p>Share a few details below and our head baker will follow up within 24 hours to confirm flavors, design, and pickup or delivery.</p>
+        <div class="order-facts">
+          <div class="order-fact"><span class="dot"></span><div><b>Lead time</b><span>We recommend ordering at least 5 days in advance — 3 weeks for wedding cakes.</span></div></div>
+          <div class="order-fact"><span class="dot"></span><div><b>Pickup &amp; delivery</b><span>Available Tuesday–Sunday from our studio, or local delivery within 15 miles.</span></div></div>
+          <div class="order-fact"><span class="dot"></span><div><b>Dietary needs</b><span>Gluten-free and vegan options available on request — just mention it below.</span></div></div>
+        </div>
+      </div>
+
+      <form class="order-form reveal" id="orderForm">
+        <div id="formFields">
+          <h3>Order Inquiry</h3>
+          <p>No payment required yet — this just starts the conversation.</p>
+          <div class="form-row">
+            <div class="field">
+              <label for="fName">Name</label>
+              <input type="text" id="fName" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label for="fEmail">Email</label>
+              <input type="email" id="fEmail" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="fPhone">Phone</label>
+              <input type="tel" id="fPhone" placeholder="(555) 000-0000" required>
+            </div>
+            <div class="field">
+              <label for="fDate">Date needed</label>
+              <input type="date" id="fDate" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fMessage">Tell us about your cake</label>
+            <textarea id="fMessage" placeholder="Occasion, flavor, size, design ideas..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-ghost form-submit" style="background:var(--gold);color:var(--espresso);border-color:var(--gold);">Send Inquiry <svg><use href="#icon-arrow"/></svg></button>
+          <p class="form-note">By submitting, you agree to be contacted about your order. We never share your information.</p>
+        </div>
+        <div class="thankyou" id="thankYou">
+          <div class="check">✓</div>
+          <h3>Thank you, <span id="thankName">friend</span>!</h3>
+          <p>We've received your inquiry and will reach out within 24 hours to finalize every sweet detail of your cake.</p>
+          <button id="resetForm" type="button">Send another inquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg><use href="#icon-mark"/></svg>Sugar <em>&amp;</em> Bloom</div>
+        <p class="tagline-small">Handcrafted cakes for life's sweetest moments, baked fresh in small batches for every celebration.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg><use href="#icon-pinterest"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#quiz">Cake Quiz</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#order">Order</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Studio Hours</h4>
+        <ul>
+          <li>Tue – Fri: 9am – 6pm</li>
+          <li>Saturday: 9am – 4pm</li>
+          <li>Sunday: 10am – 2pm</li>
+          <li>Monday: Closed</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>214 Blossom Lane</li>
+          <li>Portland, OR 97201</li>
+          <li>hello@sugarandbloom.com</li>
+          <li>(555) 248-0192</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sugar &amp; Bloom Bakery. All rights reserved.</span>
+      <span>Made with flour, butter, and a little bit of magic.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------- NAV ----------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const open = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = open ? 'none' : 'flex';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.display = 'none'));
+
+  // ---------- SCROLL REVEAL ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---------- MENU DATA ----------
+  const CAKES = [
+    { key:'chocolate', name:'Midnight Cacao', desc:'Dark Belgian chocolate sponge, whipped ganache, and cocoa nib crunch.', img:'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=900&q=80', prices:{under50:48, mid:72, upper:145, luxury:240} },
+    { key:'vanilla', name:'Golden Vanilla Bean', desc:'Madagascar vanilla bean sponge, mascarpone cream, macerated berries.', img:'https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=900&q=80', prices:{under50:42, mid:58, upper:120, luxury:210} },
+    { key:'redvelvet', name:'Velvet Bloom', desc:'Buttermilk red velvet, cream cheese frosting, fresh raspberries.', img:'https://images.unsplash.com/photo-1687877858381-e98c32796861?auto=format&fit=crop&w=900&q=80', prices:{under50:45, mid:65, upper:130, luxury:225} },
+    { key:'lemon', name:'Lemon Verbena Blossom', desc:'Citrus lemon sponge, verbena syrup, honey buttercream.', img:'https://images.unsplash.com/photo-1515754164677-ec9796621bcb?auto=format&fit=crop&w=900&q=80', prices:{under50:44, mid:60, upper:125, luxury:215} },
+    { key:'rosepistachio', name:'Rose Pistachio Dream', desc:'Pistachio sponge, rosewater cream, and candied petals.', img:'https://images.unsplash.com/photo-1542007920-992d2c424d09?auto=format&fit=crop&w=900&q=80', prices:{under50:49, mid:88, upper:165, luxury:265} },
+    { key:'wildflowerhoney', name:'Wildflower Honey Almond', desc:'Toasted almond sponge, wildflower honey soak, honey buttercream.', img:'https://images.unsplash.com/photo-1604702433171-33756f3f3825?auto=format&fit=crop&w=900&q=80', prices:{under50:46, mid:78, upper:150, luxury:245} },
+  ];
+
+  const menuGrid = document.getElementById('menuGrid');
+  CAKES.forEach((c, i) => {
+    const card = document.createElement('div');
+    card.className = 'cake-card reveal';
+    card.style.transitionDelay = (i % 3) * 0.08 + 's';
+    card.innerHTML = `
+      <div class="cake-media">
+        <img src="${c.img}" alt="${c.name}">
+        <div class="cake-price-tag">$${c.prices.mid}</div>
+      </div>
+      <div class="cake-info">
+        <h3>${c.name}</h3>
+        <p>${c.desc}</p>
+      </div>`;
+    menuGrid.appendChild(card);
+    io.observe(card);
+  });
+
+  // ---------- QUIZ ----------
+  const panels = Array.from(document.querySelectorAll('.quiz-panel'));
+  const progressBar = document.getElementById('progressBar');
+  const stepNum = document.getElementById('stepNum');
+  const backBtn = document.getElementById('backBtn');
+  let step = 0;
+  const answers = { occasion:null, flavor:null, budget:null };
+
+  function renderStep(){
+    panels.forEach(p => {
+      const s = Number(p.dataset.step);
+      p.classList.remove('active','prev');
+      if (s === step) p.classList.add('active');
+      else if (s < step) p.classList.add('prev');
+    });
+    const shown = Math.min(step, 3);
+    progressBar.style.width = (shown/3*100) + '%';
+    stepNum.textContent = String(Math.min(step+1,3)).padStart(2,'0');
+    backBtn.classList.toggle('show', step > 0);
+  }
+
+  document.querySelectorAll('.options-grid').forEach(grid => {
+    const question = grid.dataset.question;
+    grid.querySelectorAll('.option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        grid.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        answers[question] = btn.dataset.value;
+        setTimeout(() => {
+          step += 1;
+          if (step === 3) renderResult();
+          renderStep();
+        }, 380);
+      });
+    });
+  });
+
+  backBtn.addEventListener('click', () => {
+    if (step > 0) { step -= 1; renderStep(); }
+  });
+
+  const OCCASION_INTRO = {
+    birthday: "Birthdays deserve a showstopper —",
+    wedding: "For a day this important, we recommend",
+    anniversary: "Celebrating your love story calls for",
+    justbecause: "Because every day can be a little sweeter,"
+  };
+  const BUDGET_SIZE = {
+    under50: "a petite 6-inch cake, serving 6–8",
+    mid: "a classic 8-inch cake, serving 12–15",
+    upper: "a two-tier celebration cake, serving 25–30",
+    luxury: "a grand, fully-customized multi-tier showpiece, serving 40+"
+  };
+
+  function buildRecommendation(){
+    let key = answers.flavor;
+    if (key === 'surprise') {
+      key = (answers.occasion === 'wedding' || answers.occasion === 'anniversary') ? 'rosepistachio' : 'wildflowerhoney';
+    } else if (key === 'redvelvet') {
+      key = 'redvelvet';
+    }
+    const cake = CAKES.find(c => c.key === key) || CAKES[0];
+    const price = cake.prices[answers.budget] || cake.prices.mid;
+    const intro = OCCASION_INTRO[answers.occasion] || "Here's a cake made for the moment —";
+    const size = BUDGET_SIZE[answers.budget] || BUDGET_SIZE.mid;
+    const desc = `${intro} our ${cake.name.toLowerCase()}: ${cake.desc.toLowerCase()} We'll bake ${size}, tailored to your celebration.`;
+    return { cake, price, desc };
+  }
+
+  let currentRec = null;
+  function renderResult(){
+    currentRec = buildRecommendation();
+    document.getElementById('resultImg').src = currentRec.cake.img;
+    document.getElementById('resultImg').alt = currentRec.cake.name;
+    document.getElementById('resultTitle').textContent = currentRec.cake.name;
+    document.getElementById('resultDesc').textContent = currentRec.desc;
+    document.getElementById('resultPrice').textContent = 'Starting at $' + currentRec.price;
+  }
+
+  document.getElementById('retakeBtn').addEventListener('click', () => {
+    step = 0; answers.occasion = answers.flavor = answers.budget = null;
+    document.querySelectorAll('.option.selected').forEach(b => b.classList.remove('selected'));
+    renderStep();
+  });
+
+  document.getElementById('orderThisCake').addEventListener('click', () => {
+    if (currentRec) {
+      const msg = document.getElementById('fMessage');
+      msg.value = `I'd love to order the ${currentRec.cake.name} (starting at $${currentRec.price}) for a${answers.occasion === 'anniversary' ? 'n' : ''} ${answers.occasion}.`;
+    }
+    document.getElementById('order').scrollIntoView({ behavior:'smooth' });
+  });
+
+  renderStep();
+
+  // ---------- ORDER FORM ----------
+  const dateInput = document.getElementById('fDate');
+  const tomorrow = new Date(Date.now() + 86400000);
+  dateInput.min = tomorrow.toISOString().split('T')[0];
+
+  const orderForm = document.getElementById('orderForm');
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fName').value.trim().split(' ')[0] || 'friend';
+    document.getElementById('thankName').textContent = name;
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('thankYou').classList.add('active');
+  });
+  document.getElementById('resetForm').addEventListener('click', () => {
+    orderForm.reset();
+    document.getElementById('thankYou').classList.remove('active');
+    document.getElementById('formFields').style.display = 'block';
+  });
+})();
+</script>
